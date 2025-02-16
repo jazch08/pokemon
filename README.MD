@@ -154,7 +154,7 @@ flutter run
 ```
 
 ---
-## 🎥 Muesrtra de Funcionamiento
+## 🎥 Muestra de Funcionamiento
 A continuación, puedes ver el video del funcionamiento de la aplicación:
 [![Ver video de funcionamiento](https://img.youtube.com/vi/tSxl423CUTg/maxresdefault.jpg)](https://youtu.be/tSxl423CUTg)
 
