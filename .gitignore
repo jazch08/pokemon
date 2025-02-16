@@ -1,0 +1,81 @@
+# ============================
+# 📌 IGNORAR ARCHIVOS DE NODE.JS (EXPRESS) - PokemonBack
+# ============================
+
+# Dependencias de Node.js
+PokemonBack/node_modules/
+PokemonBack/package-lock.json
+PokemonBack/pnpm-lock.yaml
+PokemonBack/yarn.lock
+
+# Variables de entorno
+PokemonBack/.env
+PokemonBack/.env.local
+PokemonBack/.env.development.local
+PokemonBack/.env.test.local
+PokemonBack/.env.production.local
+
+# Cachés y logs
+PokemonBack/logs/
+PokemonBack/*.log
+PokemonBack/npm-debug.log*
+PokemonBack/yarn-debug.log*
+PokemonBack/yarn-error.log*
+PokemonBack/.pnpm-debug.log*
+PokemonBack/.nyc_output
+PokemonBack/coverage/
+PokemonBack/.parcel-cache
+
+# Directorios de compilación y salida
+PokemonBack/build/
+PokemonBack/dist/
+PokemonBack/.next/
+PokemonBack/.nuxt/
+PokemonBack/.docusaurus
+PokemonBack/.serverless/
+
+# Cachés de herramientas
+PokemonBack/.eslintcache
+PokemonBack/.stylelintcache
+PokemonBack/.cache/
+
+# ============================
+# 📌 IGNORAR ARCHIVOS DE FLUTTER - pokemon_app
+# ============================
+
+# Caché de compilación y dependencias
+pokemon_app/.dart_tool/
+pokemon_app/.packages
+pokemon_app/build/
+pokemon_app/.flutter-plugins
+pokemon_app/.flutter-plugins-dependencies
+pokemon_app/.metadata
+pokemon_app/pubspec.lock
+
+# Configuración de IDEs y editores
+pokemon_app/.idea/
+pokemon_app/.vscode/
+pokemon_app/*.iml
+
+# Otros archivos generados
+pokemon_app/ios/
+pokemon_app/windows/
+pokemon_app/linux/
+pokemon_app/macos/
+pokemon_app/web/
+pokemon_app/android/
+
+# Caché de Flutter
+pokemon_app/.fvm/
+pokemon_app/.pub-cache/
+pokemon_app/.pub/
+pokemon_app/flutter_export_environment.sh
+pokemon_app/flutter_*.xcconfig
+pokemon_app/canvaskit/
+pokemon_app/ios/Flutter/.last_build_id
+
+# ============================
+# 📌 IGNORAR CONFIGURACIONES DEL SISTEMA OPERATIVO
+# ============================
+.DS_Store
+Thumbs.db

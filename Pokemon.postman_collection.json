@@ -1,0 +1,408 @@
+{
+	"info": {
+		"_postman_id": "21386c60-a9c4-4803-bb4e-8f8cd07ea5dd",
+		"name": "Pokemon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26770121"
+	},
+	"item": [
+		{
+			"name": "List of Pokemons",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>Name</th>\r",
+							"        <th>Image</th>\r",
+							"    </tr>\r",
+							"    \r",
+							"    {{#each response}}\r",
+							"        <tr>\r",
+							"            <td>{{name}}</td>\r",
+							"            <td><img src=\"{{image}}\" alt=\"{{name}}\"></td>\r",
+							"        </tr>\r",
+							"    {{/each}}\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return {response: pm.response.json()}\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWY3N2IxYjUyMTIwMTE4NTQ4ZTI4YSIsImlhdCI6MTczOTYxNDIxMSwiZXhwIjoxNzM5NjE3ODExfQ.dq1ZikHeh05_FvrIDYmd_SuwaqPZLSM1ZpJZMcKZ-Oc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}pokemons/",
+					"host": [
+						"{{base_url}}pokemons"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": "Permite obtener un listado de 20 pokemons"
+			},
+			"response": []
+		},
+		{
+			"name": "get data Pokemon by name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>Name</th>\r",
+							"        <th>ID</th>\r",
+							"        <th>Image</th>\r",
+							"        <th>Types</th>\r",
+							"        <th>Abilities</th>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>{{response.name}}</td>\r",
+							"        <td>{{response.id}}</td>\r",
+							"        <td><img src=\"{{response.image}}\" alt=\"Pokemon Image\" height=\"100\" width=\"100\"></td>\r",
+							"        <td>{{response.types.join(\", \")}}</td>\r",
+							"        <td>{{response.abilities.join(\", \")}}</td>\r",
+							"    </tr>\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return {response: pm.response.json()}\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWY3N2IxYjUyMTIwMTE4NTQ4ZTI4YSIsImlhdCI6MTczOTYzNDA0NiwiZXhwIjoxNzM5NjM3NjQ2fQ.8cX3OTztNI26PnGkR5z5y0AR-iAJ2MFHkNVaIN_bX-M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}pokemons/bulbasaur",
+					"host": [
+						"{{base_url}}pokemons"
+					],
+					"path": [
+						"bulbasaur"
+					]
+				},
+				"description": "Obtiene la informacion de un pokemon dado un nombre"
+			},
+			"response": []
+		},
+		{
+			"name": "Evolve Pokemon by name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>Name</th>\r",
+							"        <th>ID</th>\r",
+							"        <th>Image</th>\r",
+							"        <th>Types</th>\r",
+							"        <th>Abilities</th>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>{{response.name}}</td>\r",
+							"        <td>{{response.id}}</td>\r",
+							"        <td><img src=\"{{response.image}}\" alt=\"Pokemon Image\" height=\"100\" width=\"100\"></td>\r",
+							"        <td>{{response.types.join(\", \")}}</td>\r",
+							"        <td>{{response.abilities.join(\", \")}}</td>\r",
+							"    </tr>\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return {response: pm.response.json()}\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWY3N2IxYjUyMTIwMTE4NTQ4ZTI4YSIsImlhdCI6MTczOTYzNDA0NiwiZXhwIjoxNzM5NjM3NjQ2fQ.8cX3OTztNI26PnGkR5z5y0AR-iAJ2MFHkNVaIN_bX-M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}pokemons/bulbasaur/evolve",
+					"host": [
+						"{{base_url}}pokemons"
+					],
+					"path": [
+						"bulbasaur",
+						"evolve"
+					]
+				},
+				"description": "Ayuda a encontrar la evolucion de un pokemon, si es que la tiene"
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Jorge Zambrano\",\r\n    \"email\":\"jaaronzambranoch@outlook.es\",\r\n    \"password\":\"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}auth/register",
+					"host": [
+						"{{base_url}}auth"
+					],
+					"path": [
+						"register"
+					]
+				},
+				"description": "Funcionalidad de registrar usuario"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"jaaronzambranoch@outlook.es\",\r\n    \"password\":\"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}auth/login",
+					"host": [
+						"{{base_url}}auth"
+					],
+					"path": [
+						"login"
+					]
+				},
+				"description": "Permite el inicio de sesión"
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar Favorito",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWY3N2IxYjUyMTIwMTE4NTQ4ZTI4YSIsImlhdCI6MTczOTYxNDIxMSwiZXhwIjoxNzM5NjE3ODExfQ.dq1ZikHeh05_FvrIDYmd_SuwaqPZLSM1ZpJZMcKZ-Oc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pokemonId\":3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}users/add-favorite",
+					"host": [
+						"{{base_url}}users"
+					],
+					"path": [
+						"add-favorite"
+					]
+				},
+				"description": "Guarda un favorito enviando el IdPokemon"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener favoritos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>Name</th>\r",
+							"        <th>ID</th>\r",
+							"        <th>Image</th>\r",
+							"        <th>Types</th>\r",
+							"        <th>Abilities</th>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>{{response.name}}</td>\r",
+							"        <td>{{response.id}}</td>\r",
+							"        <td><img src=\"{{response.image}}\" alt=\"Pokemon Image\" height=\"100\" width=\"100\"></td>\r",
+							"        <td>{{response.types.join(\", \")}}</td>\r",
+							"        <td>{{response.abilities.join(\", \")}}</td>\r",
+							"    </tr>\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return {response: pm.response.json()}\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWY3N2IxYjUyMTIwMTE4NTQ4ZTI4YSIsImlhdCI6MTczOTYxNDIxMSwiZXhwIjoxNzM5NjE3ODExfQ.dq1ZikHeh05_FvrIDYmd_SuwaqPZLSM1ZpJZMcKZ-Oc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}users/favorites",
+					"host": [
+						"{{base_url}}users"
+					],
+					"path": [
+						"favorites"
+					]
+				},
+				"description": "Obtiene el listado de los pokemons favoritos del usuario"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:5000/api/",
+			"type": "string"
+		}
+	]
+}
