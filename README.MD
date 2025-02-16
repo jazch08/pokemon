@@ -155,4 +155,6 @@ flutter run
 
 ---
 ## 🎥 Muesrtra de Funcionamiento
+A continuación, puedes ver el video del funcionamiento de la aplicación:
+
 
